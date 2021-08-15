@@ -1,14 +1,15 @@
-import './App.css';
+import SiteHeader from './components/SiteHeader'
+import SiteFooter from './components/SiteFooter'
+import MainContent from './components/MainContent'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Movie search</h1>
-        <div className="main-content">
-          Move search main content
-        </div>
-      </header>
+      <div className="main">
+          <SiteHeader/>
+          <MainContent/>
+          <SiteFooter/>
+      </div>
     </div>
   );
 }

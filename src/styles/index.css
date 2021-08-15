@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/* Header styling ===========   */
+
+.header-container {
+  background-color: rgb(85, 203, 250);
+}
+
+.header-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 0;
+}
+
+.logo {
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+
+/* Conetn styling ===========   */
+
+.main-content  {
+  max-width: 1200px;
+  margin: auto;
+
+}
+
+/* Footer styling ===========   */
+
+.footer-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 0;
+  border-top: 1px solid rgb(216 226 230);
+  margin-top: 30px;
+}
