@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import MvSearch from './components/MvSearch'
 import MvResult from './components/MvResults';
 import MvDetails from './components/MvDetails';
@@ -5,7 +7,16 @@ import useFetch from './useFetch';
 
 function App() {
 
- const { data, isPending, error } = useFetch('?s=lion&apikey=8f5e4dfc')
+
+
+const { data, isPending, error } = useFetch('?s=lion&apikey=8f5e4dfc')
+
+const [currntMovie, setCurrentMoive] = useState(null);
+
+const handleCurrentMovie = (id) => {
+  console.log('handle current movie clicked')
+  setCurrentMoive(id)
+}
 
   return (
     <div className="App">
@@ -18,8 +29,8 @@ function App() {
             { data && 
             
             <div className="search-wrapper">
-               <MvResult movies={data} />
-               <MvDetails/>
+               <MvResult movies={data} handleCurrentMovie={handleCurrentMovie}/>
+               <MvDetails currntMovie ={currntMovie}/>
             </div>
 
             }
