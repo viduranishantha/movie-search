@@ -6,7 +6,7 @@ body {
 }
 
 .main {
-  max-width: 1200px;
+  max-width: 1150px;
   margin:auto;
 }
 
@@ -18,7 +18,7 @@ body {
 /* Movie list */
 
 .movie-list {
-    width: 37%;
+    width: 44%;
     max-height: 700px;
     overflow: hidden;
     overflow-y: scroll;
@@ -72,3 +72,8 @@ body {
 
 
 /* Movie Details*/
+
+.movie-detials {
+  background-color: #979797;
+  padding: 30px;
+}

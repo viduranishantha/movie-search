@@ -3,7 +3,9 @@ const MvDetails = ({currntMovie}) => {
     
    const { data, isPending, error } = useFetch('?apikey=8f5e4dfc&i='+currntMovie)
 
-
+   const ratings = data.Ratings;
+   
+    console.log(ratings)
     return ( 
     <div className="movie-detials">
         <h2>Movies details {currntMovie}</h2>
@@ -22,8 +24,19 @@ const MvDetails = ({currntMovie}) => {
                        {data.Plot}
                 </div>
                 <div className="movie-ratings">
-                   
- 
+
+                    {ratings.map((rating) => (
+                        <div className="movie-rating-container" >
+                            <span className="rating-value">
+                                {rating.Value}
+                            </span>
+                            <span className="rating-source">
+                                {rating.Source}
+                            </span>
+                        </div>
+                   ))
+
+                   }
                 </div>
              </>
 
