@@ -9,7 +9,7 @@ function App() {
 
 
 
-const { data, isPending, error } = useFetch('?s=lion&apikey=8f5e4dfc')
+const { data, isPending, error } = useFetch('?apikey=8f5e4dfc&s=lion')
 
 const [currntMovie, setCurrentMoive] = useState(null);
 
