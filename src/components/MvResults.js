@@ -1,5 +1,4 @@
 
-
 const MvResult = (props) => {
 
     // const movies = props.movies;

@@ -52,8 +52,7 @@ console.log('app page data=',movies)
       <div className="main">
        {console.log ('movie object=',data)}
         
-       <MvSearch 
-       handleSearchTerms = {handleSearchTerms} />
+       <MvSearch handleSearchTerms = {handleSearchTerms} />
 
       { error && <div> {error}</div>}
       { isPending && <div> Loading...</div>}
@@ -69,7 +68,7 @@ console.log('app page data=',movies)
 
           <MvDetails currntMovie ={currntMovie} />
       </div>
-
+ <div> search filter values= {searchWord} , type = {movieType}</div> 
       
             
       </div>
