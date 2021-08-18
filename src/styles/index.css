@@ -71,9 +71,13 @@ body {
 }
 
 
-/* Movie Details*/
 
-.movie-detials {
-  background-color: #979797;
+
+
+/* Search filters */
+
+.search-container {
+  background: #707070;
   padding: 30px;
+  display: flex;
 }
