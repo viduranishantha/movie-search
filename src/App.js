@@ -7,7 +7,7 @@ import useFetch from './useFetch';
 
 function App() {
 
-const [searchWord, SetSearchWord] = useState ('lion')
+const [searchWord, SetSearchWord] = useState ('Star wars')
 const [movieType, SetMovieType]  =useState('')
 const {data, isPending, error} = useFetch(`?apikey=8f5e4dfc&s=${searchWord}&type=${movieType}`)
 
@@ -39,9 +39,6 @@ const handleSearchTerms = (terms) => {
  console.log (terms.keyWord)
  SetSearchWord(terms.keyWord)
  SetMovieType(terms.movieType)
-  // if(terms.keyWord.length>2){
-  //   SetSearchWord('one')
-  // }
 }
 
 
@@ -50,27 +47,24 @@ console.log('app page data=',movies)
   return (
     <div className="App">
       <div className="main">
-       {console.log ('movie object=',data)}
+       {/* {console.log ('movie object=',data)} */}
         
        <MvSearch handleSearchTerms = {handleSearchTerms} />
-
-      { error && <div> {error}</div>}
-      { isPending && <div> Loading...</div>}
-      
+    
       <div className="search-wrapper">
         
           <MvResult 
           movies={movies} 
+          error = {error}
+          isPending = {isPending}
           totalResults={totalResults}  
           handleCurrentMovie={handleCurrentMovie}
           movieType = {movieType}
           />
 
-          <MvDetails currntMovie ={currntMovie} />
+          {currntMovie && <MvDetails currntMovie ={currntMovie} />}
       </div>
- <div> search filter values= {searchWord} , type = {movieType}</div> 
-      
-            
+      <div> search filter values= {searchWord} , type = {movieType}</div> 
       </div>
     </div>
   );

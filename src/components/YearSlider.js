@@ -1,73 +1,39 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
-import { SliderRail, Handle, Track, Tick } from "./sliderComponent"; // example render components - source below
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Slider from '@material-ui/core/Slider';
 
-const sliderStyle = {
-  position: "relative",
-  width: "100%"
-};
+const useStyles = makeStyles({
+  root: {
+    width: 300,
+  },
+});
 
-const domain = [1970, 2015];
-const defaultValues = [1990, 2015];
-
-class YearSlider extends Component {
-  render() {
-    return (
-      <div style={{ margin: "10%", height: 120, width: "80%" }}>
-        <Slider
-          mode={2}
-          step={1}
-          domain={domain}
-          rootStyle={sliderStyle}
-          onUpdate={this.onUpdate}
-          onChange={this.onChange}
-          values={defaultValues}
-        >
-          <Rail>
-            {({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}
-          </Rail>
-          <Handles>
-            {({ handles, getHandleProps }) => (
-              <div className="slider-handles">
-                {handles.map((handle) => (
-                  <Handle
-                    key={handle.id}
-                    handle={handle}
-                    domain={domain}
-                    getHandleProps={getHandleProps}
-                  />
-                ))}
-              </div>
-            )}
-          </Handles>
-          <Tracks left={false} right={false}>
-            {({ tracks, getTrackProps }) => (
-              <div className="slider-tracks">
-                {tracks.map(({ id, source, target }) => (
-                  <Track
-                    key={id}
-                    source={source}
-                    target={target}
-                    getTrackProps={getTrackProps}
-                  />
-                ))}
-              </div>
-            )}
-          </Tracks>
-          <Ticks count={5}>
-            {({ ticks }) => (
-              <div className="slider-ticks">
-                {ticks.map((tick) => (
-                  <Tick key={tick.id} tick={tick} count={ticks.length} />
-                ))}
-              </div>
-            )}
-          </Ticks>
-        </Slider>
-      </div>
-    );
-  }
+function valuetext(value) {
+  return `${value}°C`;
+  console.log('slider-value',`${value}°C`)
 }
 
-export default YearSlider;
+export default function RangeSlider() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState([20, 37]);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.root}>
+      <Typography id="range-slider" gutterBottom>
+        Year
+      </Typography>
+      <Slider
+        value={value}
+        onChange={handleChange}
+        valueLabelDisplay="true"
+        aria-labelledby="range-slider"
+        getAriaValueText={valuetext}
+      />
+    </div>
+  );
+}

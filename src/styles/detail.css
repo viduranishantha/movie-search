@@ -2,5 +2,94 @@
 
 .movie-detials {
  padding: 30px;
- width:56%;
+width: calc(62% - 60px);
+}
+
+.movie-main-info-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.movie-thumb {
+    width: 33%;
+}
+
+.movie-thumb img {
+    width: 100%;
+}
+
+.movie-details-discription {
+    width:63%;
+   padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.watchlist-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.movie-details-discription h3 {
+    font-size: 30px;
+}
+
+.extra-info-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #4b4b4b;
+}
+
+.extra-info .rated {
+    border: 1px solid #222222;
+    border-radius: 5px;
+    padding:5px;
+    padding: 5px 8px 3px;
+    margin-right: 10px;
+}
+
+.actors {
+    color: #4b4b4b;
+    margin-top: 20px;
+}
+
+.movie-story-container {
+    border-top: 1px solid #bbbbbb;
+    padding: 20px 0;
+    color: #747474;
+    line-height: 26px;
+    font-size: 18px;
+}
+
+.movie-ratings {
+    border-top: 1px  solid #bbbbbb;
+    padding: 20px 0;
+    display: flex;
+}
+
+.movie-rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #bbbbbb;
+    width: 33.3%;
+    color: #747474;
+}
+
+.movie-rating-container:last-child {
+    border-right: 1px solid #fff;
+}
+
+.rating-value {
+    padding: 5px 0;
+}
+
+.rating-source {
+    padding: 5px 0;
 }

@@ -15,13 +15,30 @@ body {
   border: 1px solid #d8d8d8;
 }
 
+.loading {
+    justify-content: center;
+    display: flex;
+    padding: 20px;
+    position: absolute;
+    background: #f8f8f8a1;
+    color: #9c9c9c;
+    font-size: 16px;
+}
+
 /* Movie list */
 
 .movie-list {
-    width: 44%;
+    width: 38%;
     max-height: 700px;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+.movie-count .count {
+  font-size: 14px;
+  padding: 20px 30px;
+  color:#404040;
+  text-transform: uppercase;
 }
 
 .movie-container {
@@ -30,8 +47,12 @@ body {
   border-bottom: 1px solid #d8d8d8;
 }
 
+.movie-container:hover { 
+  background-color:#ebebeb;
+}
+
 .image-container {
-  width: 30%;
+  width: 15%;
   position:relative;
 }
 
@@ -63,7 +84,7 @@ body {
   margin: 0 0 10px 0;
 }
 
-.year {
+.movie-year {
   font-size: 14px;
   font-family: sans-serif;
   font-weight: 200;

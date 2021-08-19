@@ -22,7 +22,7 @@ const MvSearch = (props) => {
     return ( 
         <div className="search-container"> 
             <div className="search-word">
-                <FaSearch color="white"/>
+                <FaSearch color="white" fontSize="20"/>
                 <input
                 className="search-wording-input"
                     type="text"
