@@ -34,7 +34,7 @@ const MvDetails = ({currntMovie}) => {
             <div className="movie-ratings">
 
                 {data.Ratings && data.Ratings.map((rating) => (
-                    <div className="movie-rating-container" >
+                    <div className="movie-rating-container" key={rating.index}>
                         <span className="rating-value">
                             {rating.Value}
                         </span>

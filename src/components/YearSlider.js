@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
+import debounce from 'lodash.debounce';
 
 const useStyles = makeStyles({
   root: {
@@ -9,31 +10,44 @@ const useStyles = makeStyles({
   },
 });
 
-function valuetext(value) {
-  return `${value}°C`;
-  console.log('slider-value',`${value}°C`)
-}
-
-export default function RangeSlider() {
+const YearSlider= (props) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState([20, 37]);
+  const [yearValue, setYearValue] = useState([2000, 2015]);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const { handleYear } = props;
+
+
+
+//   const { minYear, maxYear } = props;
+  
+  const handleChange = (event, newValue) => debouncedSave(newValue)
+  
+
+    const debouncedSave = useCallback(
+        debounce((newValue) => {
+            setYearValue (newValue)
+            handleYear (newValue)
+
+        } , 100),[],
+    );
+
 
   return (
     <div className={classes.root}>
+        {/* <div> {yearValue} </div> */}
       <Typography id="range-slider" gutterBottom>
         Year
       </Typography>
       <Slider
-        value={value}
+        value={yearValue}
         onChange={handleChange}
-        valueLabelDisplay="true"
+        valueLabelDisplay="false"
         aria-labelledby="range-slider"
-        getAriaValueText={valuetext}
+        min= {1970}
+        max= {2015}
       />
     </div>
   );
 }
+
+export default YearSlider;

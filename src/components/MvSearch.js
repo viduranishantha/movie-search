@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useCallback } from "react";
 import{FaSearch} from "react-icons/fa";
 import YearSlider from "./YearSlider";
+import debounce from 'lodash.debounce';
 
 
 
@@ -10,14 +11,28 @@ const MvSearch = (props) => {
 
     const [keyWord, setKeyWord] = useState(null);
     const [movieType, setMovieType] = useState('');
-    const [minYear, setMinYear] = useState(1990);
-    const [maxYear, setMaxYear] = useState(2010);
+    // const [minYear, setMinYear] = useState(1990);
+    // const [maxYear, setMaxYear] = useState(2010);
+    const [movieYear, setMovieYear] = useState([1990,2010])
 
     useEffect(()=> {
 
-        handleSearchTerms ({keyWord,movieType})
+        handleSearchTerms ({keyWord,movieType,movieYear})
 
-    },[keyWord,movieType])
+    },[keyWord,movieType,movieYear])
+
+    const handelYear = (yearValue) => {
+     console.log('new year value', yearValue)
+  
+    }
+
+    const debouncedWord = useCallback(
+        debounce((word) => {
+           setKeyWord (word)
+
+        } , 100),[],
+    );
+
 
     return ( 
         <div className="search-container"> 
@@ -29,14 +44,14 @@ const MvSearch = (props) => {
                     placeholder="Enter search term"
                     name="search-term"
                     value={props.value}                  
-                    onChange={(e) => setKeyWord(e.target.value)}
+                    onChange={(e) => debouncedWord(e.target.value)}
 
                 />
             </div>
             
             <div className="search-year">
                 <label>Year</label>
-                <YearSlider minYear={minYear} maxYear={maxYear} />
+                <YearSlider handleYear={setMovieYear} />
             </div>
 
             <div className="search-type">

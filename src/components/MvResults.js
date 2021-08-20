@@ -11,10 +11,10 @@ const MvResult = (props) => {
 
     return (
         <div className="movie-list">
-           <div className="movie-count">{totalResults && <div className="count"> {totalResults} Results</div>}  </div> 
+           
             { error && <div> {error}</div>}
             { isPending && <div className="loading">Item Loading <ThreeDots  stroke="#999" height="20"/></div>}  
-          
+          <div className="movie-count">{totalResults && <div className="count"> {totalResults} Results</div>}  </div> 
            {movies && movies.map((movie) => (
                <div className="movie-container" key={movie.imdbID} onClick={() => handleCurrentMovie(movie.imdbID)}>
                    <div className="image-container"> <img src={movie.Poster} alt={movie.Title}/> </div>

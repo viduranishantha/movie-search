@@ -9,6 +9,7 @@ function App() {
 
 const [searchWord, SetSearchWord] = useState ('Star wars')
 const [movieType, SetMovieType]  =useState('')
+const [movieYear, SetMovieYear] = useState([1990,2010])
 const {data, isPending, error} = useFetch(`?apikey=8f5e4dfc&s=${searchWord}&type=${movieType}`)
 
 // const {data, isPending, error} = useFetch(`?apikey=8f5e4dfc&s=lion`)
@@ -27,6 +28,8 @@ const totalResults = movieData.totalResults
 
 
 const [currntMovie, setCurrentMoive] = useState(null);
+const [minYear, setminYear] = useState(1990);
+const [maxYear, setMaxYear] = useState(2015);
         
 const handleCurrentMovie = (id) => {
   console.log('handle current movie clicked')
@@ -39,8 +42,13 @@ const handleSearchTerms = (terms) => {
  console.log (terms.keyWord)
  SetSearchWord(terms.keyWord)
  SetMovieType(terms.movieType)
+ SetMovieYear(terms.movieYear)
+ setminYear(movieYear[0])
 }
 
+
+
+// const filterdMovies= {movies.filter((movie) => movie.Year === '2000')}
 
 console.log('app page data=',movies)
 
@@ -53,14 +61,15 @@ console.log('app page data=',movies)
     
       <div className="search-wrapper">
         
-          <MvResult 
-          movies={movies} 
+          {data && <MvResult 
+          movies={movies}
           error = {error}
           isPending = {isPending}
           totalResults={totalResults}  
           handleCurrentMovie={handleCurrentMovie}
           movieType = {movieType}
-          />
+          movieYear = {movieYear}
+          />}
 
           {currntMovie && <MvDetails currntMovie ={currntMovie} />}
       </div>

@@ -19,7 +19,7 @@ const[error, setError] = useState(null);
             setIsPending(false);
 
             } catch (error) {
-                setError(error)
+                setError(error.message)
             }
            
         }
