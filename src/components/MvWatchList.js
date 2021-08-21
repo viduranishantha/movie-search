@@ -24,7 +24,7 @@ const MvWatchList = (props) => {
                     </div>
                     
                 </div>
-            ))}
+            )) }
             </div>
         </div>
     );
