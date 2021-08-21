@@ -31,6 +31,9 @@ width: calc(62% - 60px);
     position: absolute;
     top: 0;
     right: 0;
+        padding: 8px 10px 9px;
+    border: solid 1px #aaa5a5;
+    border-radius: 5px;
 }
 
 .movie-details-discription h3 {

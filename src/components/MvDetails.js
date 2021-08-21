@@ -1,8 +1,9 @@
 import useFetch from '../useFetch'
 import { ThreeDots } from 'react-loading-icons'
-const MvDetails = ({currntMovie}) => {
+const MvDetails = ({currntMovie,addWatchList,handleAddWatchList}) => {
     
    const { data, isPending, error } = useFetch('?apikey=8f5e4dfc&i='+currntMovie)
+   const AddWatchList =  addWatchList
 
     return ( 
     <div className="movie-detials">
@@ -14,8 +15,8 @@ const MvDetails = ({currntMovie}) => {
             <div className="movie-main-info-container">
                 <div className="movie-thumb"> <img src={data.Poster} alt={data.Title}/> </div>
                 <div className="movie-details-discription">
-                    <div className="watchlist-container">
-                        <button> + Watch List </button>
+                    <div className="watchlist-container" onClick={() => handleAddWatchList(data) } >
+                        <AddWatchList/>
                     </div>
                     <h3>{data.Title}</h3>
                     <div className="extra-info">

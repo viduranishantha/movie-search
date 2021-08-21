@@ -21,15 +21,10 @@ const MvSearch = (props) => {
 
     },[keyWord,movieType,movieYear])
 
-    const handelYear = (yearValue) => {
-     console.log('new year value', yearValue)
-  
-    }
 
     const debouncedWord = useCallback(
         debounce((word) => {
            setKeyWord (word)
-
         } , 100),[],
     );
 

@@ -8,6 +8,7 @@ body {
 .main {
   max-width: 1150px;
   margin:auto;
+  position: relative;
 }
 
 .search-wrapper {
@@ -153,3 +154,35 @@ body {
 .search-type  .radio-container {
   height: 30px;
 }
+
+.MuiSlider-root {
+  width: 70%!important;
+}
+
+.watch-list {
+  position: absolute;
+  top: 113px;
+ left: 38%;
+  width: 330px;
+  background: #fff;
+  border: 1px solid #bbbbbb;
+  box-shadow: 0 2px 7px 1px rgb(0 0 0 / 30%);
+  display: none;
+}
+
+.watch-list.active {
+  display: block;
+}
+
+
+.watch-list .movie-container .image-container{
+  width: 50%;
+}
+
+.watchlist-header {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
