@@ -1,0 +1,128 @@
+/* Search filters */
+@import './variables.scss';
+
+.search-container {
+    background: $color-primary;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    @media (min-width: $brakpoint-mobile) {
+        flex-direction: row;
+    }
+
+    .search-word {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom:15px;
+
+        .search-wording-input {
+            background-color: $color-primary;
+            border: 0;
+            color: $color-white;
+            font-size: 16px;
+            padding: 10px;
+            outline: none;
+            margin-left: 15px;
+        }
+
+        .search-wording-input::placeholder {
+            color: $color-white;
+            font-size: 16px;
+        }
+    }
+
+    .search-year {
+        width: 300px;
+        // overflow: hidden;
+        height: 86px;
+    
+        .MuiTypography-gutterBottom{
+        font-size: 14px;
+        color:$color-white;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            .label {
+                color: $color-white;
+                font-size: 14px;
+            }
+            .min-year {
+                margin-right: 10px;
+                
+            }
+            .max-year {
+                margin-left: 10px;
+            }
+        }
+    }
+
+
+    .MuiSlider-root {
+        width: 70%!important;
+        .MuiSlider-rail {
+            background-color: $color-white;
+            height: 6px;
+            opacity: 1;
+            border-radius: 5px;
+        }
+        .MuiSlider-track {
+            background-color: $color-light-grey;
+            height:6px;
+        }
+        .MuiSlider-thumb {
+            width: 16px;
+            height: 16px;
+            color: $color-light-grey;
+        }
+    }
+
+    .search-type {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        label {
+            font-size: 14px;
+            color: $color-white;
+            padding-bottom: 15px;
+        }
+
+        .radio-container {
+            height: 30px;
+            color: $color-white;
+            display: flex;
+            align-items: center;
+            input {
+                width: 16px;
+                height: 16px;
+                color: $color-white;
+                margin-right: 10px;
+                margin-top:0;
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

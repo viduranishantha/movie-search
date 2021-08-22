@@ -17,24 +17,21 @@ const [watchListActive, setWatchListActive] = useState(false)
 const [currntMovie, setCurrentMoive] = useState(null);
 const [minYear, setMinYear] = useState(1990);
 const [maxYear, setMaxYear] = useState(2015);
-const {data, isPending, error} = useFetch(`?apikey=8f5e4dfc&s=${searchWord}&type=${movieType}`)
 
-// const {data, isPending, error} = useFetch(`?apikey=8f5e4dfc&s=lion`)
+// Movie request with the search keyword, mvie type
+const {data, isPending, error} = useFetch(`?apikey=8f5e4dfc&s=${searchWord}&type=${movieType}`)
 
 const movieData = data || {}
 const movies = movieData.Search 
 const totalResults = movieData.totalResults 
 
-        
+// Handle current movie id for detal component        
 const handleCurrentMovie = (id) => {
-  console.log('handle current movie clicked')
   setCurrentMoive(id)
 }
 
-// 
+// Handle search terms
 const handleSearchTerms = (terms) => {
- console.log ('changed searche term is = ')       
- console.log (terms.keyWord)
  SetSearchWord(terms.keyWord)
  SetMovieType(terms.movieType)
  SetMovieYear(terms.movieYear)
@@ -43,7 +40,7 @@ const handleSearchTerms = (terms) => {
 //  const filterdMovies= {movies.filter((movie) => movie.Year === 2000)}
 }
 
-
+// Add to watch List
 const HandleAddWatchList = (movie) => {
   if(watchList.indexOf(movie) < 0) {
     console.log ('item is no in the watch list')
@@ -53,6 +50,7 @@ const HandleAddWatchList = (movie) => {
   setWatchListActive(true)
 }
 
+// Remove item from the watch list
 const HandleRemoveWatchList = (movie) => {
   const newWatchList = watchList.filter(
     (watchList) => watchList.imdbID !== movie.imdbID
@@ -100,7 +98,7 @@ console.log('app page data=',movies && movies.filter((movie) =>  movie.Year > mi
       />
 
      
-      <div> search filter values= {searchWord} , type = {movieType} , min Year {minYear} and max Year = {maxYear}  </div> 
+      {/* <div> search filter values= {searchWord} , type = {movieType} , min Year {minYear} and max Year = {maxYear}  </div>  */}
       </div>
     </div>
   );

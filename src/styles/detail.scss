@@ -1,8 +1,10 @@
 /* Movie Details*/
 
+
 .movie-detials {
  padding: 30px;
 width: calc(62% - 60px);
+position: relative;
 }
 
 .movie-main-info-container {
@@ -25,6 +27,11 @@ width: calc(62% - 60px);
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
+    min-height: 250px;
+}
+
+.movie-details-discription h3 {
+    font-size: 30px;
 }
 
 .watchlist-container {
@@ -34,11 +41,18 @@ width: calc(62% - 60px);
         padding: 8px 10px 9px;
     border: solid 1px #aaa5a5;
     border-radius: 5px;
+        display: flex;
+    align-items: center;
+}
+.watchlist-container svg {
+    margin-right: 5px;
 }
 
-.movie-details-discription h3 {
-    font-size: 30px;
+.watchlist-container:hover {
+    cursor:pointer;
 }
+
+
 
 .extra-info-wrap {
     display: flex;

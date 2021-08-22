@@ -34,18 +34,24 @@ const YearSlider= (props) => {
 
   return (
     <div className={classes.root}>
-        {/* <div> {yearValue} </div> */}
+       
       <Typography id="range-slider" gutterBottom>
         Year
       </Typography>
-      <Slider
-        value={yearValue}
-        onChange={handleChange}
-        valueLabelDisplay="false"
-        aria-labelledby="range-slider"
-        min= {1970}
-        max= {2015}
-      />
+      <div className="slider-container">
+        <div className="min-year label"> 1970 </div>
+        <Slider
+          value={yearValue}
+          onChange={handleChange}
+          valueLabelDisplay="false"
+          aria-labelledby="range-slider"
+          min= {1970}
+          max= {2015}
+          width = '70%'
+          color = '#fff'
+        />
+        <div className="max-year label"> 1970 </div>
+      </div>
     </div>
   );
 }

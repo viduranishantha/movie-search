@@ -2,17 +2,20 @@ import { ThreeDots } from 'react-loading-icons'
 
 const MvResult = (props) => {
 
-    // const movies = props.movies;
-    // const resultLength = props.totalResults;
-    // const  handleCurrentMovie= props.handleCurrentMovie;
-    const { movies, error, isPending, totalResults, handleCurrentMovie } = props
+    const { 
+    movies,
+    error,
+    isPending, 
+    totalResults, 
+    handleCurrentMovie 
+    } = props
 
     console.log(props)
 
     return (
         <div className="movie-list">
            
-            { error && <div> {error}</div>}
+            { error && <div> {error} </div>}
             { isPending && <div className="loading">Item Loading <ThreeDots  stroke="#999" height="20"/></div>}  
           <div className="movie-count">{totalResults && <div className="count"> {totalResults} Results</div>}  </div> 
            {movies && movies.map((movie) => (

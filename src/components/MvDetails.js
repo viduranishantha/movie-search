@@ -8,7 +8,7 @@ const MvDetails = ({currntMovie,addWatchList,handleAddWatchList}) => {
     return ( 
     <div className="movie-detials">
         { error && <div> {error}</div>}
-        { isPending &&<div className="loading">Item Loading <ThreeDots  stroke="#999" height="20"/></div>}
+        { isPending && <div className="loading">Item Loading <ThreeDots  stroke="#666" height="150"/></div>}
         
         { data && 
         <>

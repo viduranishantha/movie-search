@@ -34,19 +34,18 @@ const MvSearch = (props) => {
             <div className="search-word">
                 <FaSearch color="white" fontSize="20"/>
                 <input
-                className="search-wording-input"
-                    type="text"
-                    placeholder="Enter search term"
-                    name="search-term"
-                    value={props.value}                  
-                    onChange={(e) => debouncedWord(e.target.value)}
+                    className="search-wording-input"
+                        type="text"
+                        placeholder="Enter search term"
+                        name="search-term"
+                        value={props.value}                  
+                        onChange={(e) => debouncedWord(e.target.value)}
 
-                />
+                    />
             </div>
             
             <div className="search-year">
-                <label>Year</label>
-                <YearSlider handleYear={setMovieYear} />
+             <YearSlider handleYear={setMovieYear} />
             </div>
 
             <div className="search-type">

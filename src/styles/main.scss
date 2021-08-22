@@ -17,13 +17,18 @@ body {
 }
 
 .loading {
-    justify-content: center;
-    display: flex;
+justify-content: center;
     padding: 20px;
     position: absolute;
-    background: #f8f8f8a1;
+    background: #b3b6bbb0;
     color: #9c9c9c;
     font-size: 16px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    margin-left: -30px;
+    margin-top: -30px;
 }
 
 /* Movie list */
@@ -33,6 +38,12 @@ body {
     max-height: 700px;
     overflow: hidden;
     overflow-y: scroll;
+    position: relative;
+}
+
+.movie-list .loading{
+  width: 100%;
+  height: 100%;
 }
 
 .movie-count .count {
@@ -96,68 +107,7 @@ body {
 
 
 
-/* Search filters */
 
-.search-container {
-    background: #666666;
-    padding: 13px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.search-word {
-  width: 30%;
-}
-
-
-.search-wording-input {
-  background-color: #666666;
-  border: 0;
-  color: #fff;
-  font-size: 16px;
-  padding: 10px;
-  outline: none;
-  margin-left: 15px;
-}
-
-.search-wording-input::placeholder {
-  color: #fff;
-  font-size: 16px;
-}
-
-.search-year {
-  width: 220px;
-  overflow: hidden;
-  height: 86px;
-}
-
-.search-year label {
-  font-size: 14px;
-  color:#fff;
-  padding-left: 19px;
-}
-
-.search-type {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.search-type label {
-  font-size: 14px;
-  color:#fff;
-  padding-bottom:5px;
-}
-
-.search-type  .radio-container {
-  height: 30px;
-}
-
-.MuiSlider-root {
-  width: 70%!important;
-}
 
 .watch-list {
   position: absolute;
@@ -170,6 +120,11 @@ body {
   display: none;
 }
 
+.movie-watch-list {
+  height: 645px;
+  overflow-y: scroll; 
+}
+
 .watch-list.active {
   display: block;
 }
@@ -180,9 +135,30 @@ body {
 }
 
 .watchlist-header {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #d3d1d1;
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
 
+.watchlist-header .close-button:hover {
+  cursor: pointer;
+}
+
+.movie-discription .remove button {
+padding: 8px 8px 9px;
+    margin-left: -8px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.movie-discription .remove button:hover {
+  cursor: pointer;
+}
+
+.movie-discription .remove button svg {
+  margin-right: 5px;
+}
