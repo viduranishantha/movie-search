@@ -11,7 +11,7 @@ const MvSearch = (props) => {
 
     const [keyWord, setKeyWord] = useState(null);
     const [movieType, setMovieType] = useState('');
-    const [movieYear, setMovieYear] = useState([1990,2010])
+    const [movieYear, setMovieYear] = useState(['',2010])
 
     useEffect(()=> {
 

@@ -13,7 +13,6 @@ const useStyles = makeStyles({
 const YearSlider= (props) => {
   const classes = useStyles();
   const [yearValue, setYearValue] = useState([2000, 2015]);
-
   const { handleYear } = props;
   const handleChange = (event, newValue) => debouncedSave(newValue)
   
@@ -33,7 +32,7 @@ const YearSlider= (props) => {
         Year
       </Typography>
       <div className="slider-container">
-        <div className="min-year label"> 1970 </div>
+        <div className="min-year label"> {yearValue[0]} </div>
         <Slider
           value={yearValue}
           onChange={handleChange}
@@ -42,7 +41,7 @@ const YearSlider= (props) => {
           max= {2015}
        
         />
-        <div className="max-year label"> 1970 </div>
+        <div className="max-year label"> 2015 </div>
       </div>
     </div>
   );

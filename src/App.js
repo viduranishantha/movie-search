@@ -12,9 +12,9 @@ import NoImage from "./assets/no-image.jpg"
 
 function App() {
 
-const [searchWord, SetSearchWord] = useState ('Star wars')
+const [searchWord, SetSearchWord] = useState ('lion')
 const [movieType, SetMovieType]  =useState('')
-const [movieYear, SetMovieYear] = useState([1990,2010])
+const [movieYear, SetMovieYear] = useState(['',2010])
 const [watchList, setWatchList] = useState([])
 const [watchListActive, setWatchListActive] = useState(false)
 const [currntMovie, setCurrentMoive] = useState(null);
@@ -23,8 +23,7 @@ const [maxYear, setMaxYear] = useState(2015);
 const [mobileDetailActive, setMobileDetailActive] = useState(false)
 
 // Movie request with the search keyword, movie type
-const {data, isPending, error} = useFetch(`?apikey=${process.env.REACT_APP_OMDG_API_KEY}&s=${searchWord}&type=${movieType}`)
-// const {data, isPending, error} = useFetch(`?apikey=${process.env.REACT_APP_OMDG_API_KEY}&s=${searchWord}&type=${movieType}&y=${minYear}`)
+const {data, isPending, error} = useFetch(`?apikey=${process.env.REACT_APP_OMDG_API_KEY}&s=${searchWord}&type=${movieType}&y=${minYear}`)
 
 const movieData = data || {}
 const movies = movieData.Search 
@@ -36,6 +35,7 @@ const handleCurrentMovie = (id) => {
   HandleDetailClose(true)
 }
 
+
 // Handle search terms
 const handleSearchTerms = (terms) => {
  SetSearchWord(terms.keyWord)
@@ -43,7 +43,7 @@ const handleSearchTerms = (terms) => {
  SetMovieYear(terms.movieYear)
  setMinYear(movieYear[0])
  setMaxYear(movieYear[1])
-//  const filterdMovies= {movies.filter((movie) => movie.Year === 2000)}
+ console.log("min-year",minYear)
 }
 
 // Add to watch List

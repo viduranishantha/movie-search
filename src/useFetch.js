@@ -16,21 +16,17 @@ const[error, setError] = useState(null);
             if(request.data.Response === 'False'){
                 setError(request.data.Error)
                 setData([]);
-                
             }else{
                 if(request.data){
                     setError ('')
                     setData(request.data);
-                 }
+                }
             }
             setIsPending(false);
 
             } catch (error) {
                 setError('error requesting data')
-                
             }
-        //  console.log('error output',error)
-        console.log('fetch data',data)
         }
         fetchMovies();
        
@@ -38,7 +34,5 @@ const[error, setError] = useState(null);
 
     return { data, isPending, error };
 }
-
-
 
 export default useFetch
