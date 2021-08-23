@@ -19,7 +19,6 @@ const MvSearch = (props) => {
 
     },[keyWord,movieType,movieYear])
 
-
     const debouncedWord = useCallback(
         debounce((word) => {
            setKeyWord (word)
