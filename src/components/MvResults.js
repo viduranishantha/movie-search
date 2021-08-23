@@ -14,7 +14,7 @@ const MvResult = (props) => {
     return (
         <div className="movie-list">
            
-            { error && <div> {error} </div>}
+            { error && <div className="error-container"> {error} </div>}
             { isPending && <div className="loading">Item Loading <ThreeDots  stroke="#999" height="20"/></div>}  
           <div className="movie-count">{totalResults && <div className="count"> {totalResults} Results</div>}  </div> 
            {movies && movies.map((movie) => (

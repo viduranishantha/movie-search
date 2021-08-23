@@ -36,7 +36,6 @@ const handleCurrentMovie = (id) => {
   HandleDetailClose(true)
 }
 
-
 // Handle search terms
 const handleSearchTerms = (terms) => {
  SetSearchWord(terms.keyWord)

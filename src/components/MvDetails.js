@@ -18,7 +18,7 @@ const MvDetails = ({
         <div className="mobile-header">
             <div className="close-button" onClick={()=> handleDetailClose(false)}> <FaTimes fontSize='25px' fontWeight='400'/> </div>
         </div>
-        { error && <div> {error}</div>}
+        { error && <div className="error-container"> {error}</div>}
         { isPending && <div className="loading">Item Loading <ThreeDots  stroke="#666" height="150"/></div>}
         
         { data && 

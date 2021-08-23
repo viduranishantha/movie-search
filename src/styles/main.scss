@@ -22,6 +22,7 @@ body {
 		.results-wrapper {
 			display: flex;
 			border: 1px solid $color-grey-border;
+      min-height: 700px;
 		}
 	}
 }
@@ -39,4 +40,12 @@ body {
 	align-items: center;
 	margin-left: -30px;
 	margin-top: -30px;
+}
+
+.error-container {
+  padding: 14px;
+  background: $error-red;
+  color: $color-red;
+  font-size: 14px;
+  margin-bottom: 20px;
 }

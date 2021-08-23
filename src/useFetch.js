@@ -12,18 +12,25 @@ const[error, setError] = useState(null);
             try {
             setIsPending(true);
             const request = await axios.get(url);
-            if(request.data){
-                setData(request.data);
+            console.log('111', request)
+            if(request.data.Response === 'False'){
+                setError(request.data.Error)
+                setData([]);
+                
+            }else{
+                if(request.data){
+                    setError ('')
+                    setData(request.data);
+                 }
             }
             setIsPending(false);
 
             } catch (error) {
                 setError('error requesting data')
-                console.log(error)
+                
             }
-
-
-           
+        //  console.log('error output',error)
+        console.log('fetch data',data)
         }
         fetchMovies();
        
