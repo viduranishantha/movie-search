@@ -12,7 +12,6 @@ const[error, setError] = useState(null);
             try {
             setIsPending(true);
             const request = await axios.get(url);
-            console.log('111', request)
             if(request.data.Response === 'False'){
                 setError(request.data.Error)
                 setData([]);

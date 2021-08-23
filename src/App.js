@@ -12,14 +12,14 @@ import NoImage from "./assets/no-image.jpg"
 
 function App() {
 
-const [searchWord, SetSearchWord] = useState ('lion')
+const [searchWord, SetSearchWord] = useState ('star wars')
 const [movieType, SetMovieType]  =useState('')
 const [movieYear, SetMovieYear] = useState(['',2010])
 const [watchList, setWatchList] = useState([])
 const [watchListActive, setWatchListActive] = useState(false)
 const [currntMovie, setCurrentMoive] = useState(null);
 const [minYear, setMinYear] = useState('');
-const [maxYear, setMaxYear] = useState(2015);
+// const [maxYear, setMaxYear] = useState(2015);
 const [mobileDetailActive, setMobileDetailActive] = useState(false)
 
 // Movie request with the search keyword, movie type
@@ -42,8 +42,7 @@ const handleSearchTerms = (terms) => {
  SetMovieType(terms.movieType)
  SetMovieYear(terms.movieYear)
  setMinYear(movieYear[0])
- setMaxYear(movieYear[1])
- console.log("min-year",minYear)
+//  setMaxYear(movieYear[1])
 }
 
 // Add to watch List
@@ -81,7 +80,6 @@ const HandleDetailClose = (status) => {
           {data && 
           <MvResult 
             movies={movies && movies}
-            // movies={movies && movies.filter((movie) =>  movie.Year > minYear || movie.Year < maxYear )}
             error = {error}
             isPending = {isPending}
             totalResults={totalResults}  

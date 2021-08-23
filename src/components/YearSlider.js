@@ -14,13 +14,13 @@ const YearSlider= (props) => {
   const classes = useStyles();
   const [yearValue, setYearValue] = useState([2000, 2015]);
   const { handleYear } = props;
+  
   const handleChange = (event, newValue) => debouncedSave(newValue)
   
   const debouncedSave = useCallback(
       debounce((newValue) => {
           setYearValue (newValue)
           handleYear (newValue)
-
       } , 100),[],
   );
 

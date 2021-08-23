@@ -3,13 +3,10 @@ import{FaSearch} from "react-icons/fa";
 import YearSlider from "./YearSlider";
 import debounce from 'lodash.debounce';
 
-
-
 const MvSearch = (props) => {
     const handleSearchTerms = props.handleSearchTerms;
-    // const handleMovieType = props.handleMovieType;
 
-    const [keyWord, setKeyWord] = useState(null);
+    const [keyWord, setKeyWord] = useState('star wars');
     const [movieType, setMovieType] = useState('');
     const [movieYear, setMovieYear] = useState(['',2010])
 
