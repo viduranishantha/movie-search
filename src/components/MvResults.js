@@ -7,10 +7,9 @@ const MvResult = (props) => {
     error,
     isPending, 
     totalResults, 
+    noImage,
     handleCurrentMovie 
     } = props
-
-    console.log(props)
 
     return (
         <div className="movie-list">
@@ -20,7 +19,11 @@ const MvResult = (props) => {
           <div className="movie-count">{totalResults && <div className="count"> {totalResults} Results</div>}  </div> 
            {movies && movies.map((movie) => (
                <div className="movie-container" key={movie.imdbID} onClick={() => handleCurrentMovie(movie.imdbID)}>
-                   <div className="image-container"> <img src={movie.Poster} alt={movie.Title}/> </div>
+                   <div className="image-container"> 
+                   <img  src=
+                   { (movie.Poster === 'N/A') ?  `${noImage}` :  `${movie.Poster}`}
+                    alt={movie.Title}/> 
+                   </div>
                    <div className="movie-discription">
                         <h3>{movie.Title}</h3>
                         <span className="movie-year"> {movie.Year} </span>

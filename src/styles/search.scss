@@ -1,128 +1,144 @@
-/* Search filters */
-@import './variables.scss';
+/**
+*  @category Movie Search
+*  @author Vidura Nishantha <vidur@gmail.com>
+*  http://www.viduranishantha.com
+
+*  Styling search filters.  
+*/
+
+@import "./variables.scss";
 
 .search-container {
-    background: $color-primary;
-    padding: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
+	background: $color-primary;
+	padding: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
 
-    @media (min-width: $brakpoint-mobile) {
-        flex-direction: row;
-    }
+	@media (min-width: $brakpoint-mobile) {
+		flex-direction: row;
+		padding: 0px 30px;
+	}
 
-    .search-word {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom:15px;
+	.search-word {
+		width: 100%;
+		max-width: 300px;
+		margin-bottom: 15px;
+		margin-top: 20px;
+		display: flex;
+		align-items: center;
 
-        .search-wording-input {
-            background-color: $color-primary;
-            border: 0;
-            color: $color-white;
-            font-size: 16px;
-            padding: 10px;
-            outline: none;
-            margin-left: 15px;
-        }
+		.search-wording-input {
+			background-color: $color-primary;
+			border: 0;
+			color: $color-white;
+			font-size: 16px;
+			padding: 10px;
+			outline: none;
+			margin-left: 15px;
+		}
 
-        .search-wording-input::placeholder {
-            color: $color-white;
-            font-size: 16px;
-        }
-    }
+		.search-wording-input::placeholder {
+			color: $color-white;
+			font-size: 16px;
+		}
+	}
 
-    .search-year {
-        width: 300px;
-        // overflow: hidden;
-        height: 86px;
-    
-        .MuiTypography-gutterBottom{
-        font-size: 14px;
-        color:$color-white;
-        }
+	.search-year {
+		max-width: 300px;
+		padding-top: 15px;
+		height: 70px;
 
-        .slider-container {
-            display: flex;
-            align-items: center;
-            .label {
-                color: $color-white;
-                font-size: 14px;
-            }
-            .min-year {
-                margin-right: 10px;
-                
-            }
-            .max-year {
-                margin-left: 10px;
-            }
-        }
-    }
+		.MuiTypography-gutterBottom {
+			font-size: 11px;
+			color: $color-white;
+			text-align: center;
+			text-transform: uppercase;
 
+			@media (min-width: $brakpoint-mobile) {
+				text-align: left;
+			}
+		}
 
-    .MuiSlider-root {
-        width: 70%!important;
-        .MuiSlider-rail {
-            background-color: $color-white;
-            height: 6px;
-            opacity: 1;
-            border-radius: 5px;
-        }
-        .MuiSlider-track {
-            background-color: $color-light-grey;
-            height:6px;
-        }
-        .MuiSlider-thumb {
-            width: 16px;
-            height: 16px;
-            color: $color-light-grey;
-        }
-    }
+		.slider-container {
+			display: flex;
+			align-items: center;
 
-    .search-type {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: flex-start;
+			.label {
+				color: $color-white;
+				font-size: 14px;
+			}
 
-        label {
-            font-size: 14px;
-            color: $color-white;
-            padding-bottom: 15px;
-        }
+			.min-year {
+				margin-right: 10px;
+			}
 
-        .radio-container {
-            height: 30px;
-            color: $color-white;
-            display: flex;
-            align-items: center;
-            input {
-                width: 16px;
-                height: 16px;
-                color: $color-white;
-                margin-right: 10px;
-                margin-top:0;
-            }
-        }
-    }
+			.max-year {
+				padding-left: 16px;
+			}
+		}
+	}
 
+	.MuiSlider-root {
+		width: 50% !important;
+
+		.MuiSlider-rail {
+			background-color: $color-white;
+			height: 6px;
+			opacity: 1;
+			border-radius: 5px;
+		}
+
+		.MuiSlider-track {
+			background-color: $color-light-grey;
+			height: 6px;
+		}
+
+		.MuiSlider-thumb {
+			width: 16px;
+			height: 16px;
+			color: $color-light-grey;
+		}
+	}
+
+	.search-type {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		label {
+			font-size: 11px;
+			color: $color-white;
+			padding-bottom: 4px;
+			text-align: center;
+			width: 100%;
+			text-transform: uppercase;
+
+			@media (min-width: $brakpoint-mobile) {
+				text-align: left;
+			}
+		}
+
+		.radio-container {
+			height: 30px;
+			color: $color-white;
+			display: flex;
+			align-items: center;
+
+			input {
+				color: $color-white;
+				margin-right: 10px;
+				margin-top: 0;
+			}
+
+			label {
+				padding-bottom: 0;
+				margin-right: 10px;
+				text-transform: lowercase;
+				font-size: 14px;
+			}
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

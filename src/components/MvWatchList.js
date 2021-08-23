@@ -2,9 +2,12 @@ import{FaTimes} from "react-icons/fa";
 
 const MvWatchList = (props) => {
 
-    const { movies, watchListActive, handleWatchListClose, handleRemoveWatchList} = props
-
-    console.log(props)
+    const { 
+        movies,
+        watchListActive, 
+        noImage,
+        handleWatchListClose, 
+        handleRemoveWatchList} = props
 
     return (
         <div className={`watch-list  ${watchListActive ? 'active' :''}` }> 
@@ -17,7 +20,11 @@ const MvWatchList = (props) => {
             {movies === [] && <div> list is empty </div>}    
             {movies && movies.map((movie) => (
                 <div className="movie-container" key={movie.imdbID} >
-                    <div className="image-container"> <img src={movie.Poster} alt={movie.Title}/> </div>
+                    <div className="image-container"> 
+                    <img  src=
+                        { (movie.Poster === 'N/A') ?  `${noImage}` :  `${movie.Poster}`}
+                        alt={movie.Title}/> 
+                     </div>
                     <div className="movie-discription">
                             <h3>{movie.Title}</h3>
                             <span className="remove"> <button onClick={() => handleRemoveWatchList(movie) }  ><FaTimes/> Remove</button> </span>

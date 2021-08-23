@@ -11,8 +11,6 @@ const MvSearch = (props) => {
 
     const [keyWord, setKeyWord] = useState(null);
     const [movieType, setMovieType] = useState('');
-    // const [minYear, setMinYear] = useState(1990);
-    // const [maxYear, setMaxYear] = useState(2010);
     const [movieYear, setMovieYear] = useState([1990,2010])
 
     useEffect(()=> {
@@ -51,10 +49,10 @@ const MvSearch = (props) => {
             <div className="search-type">
                 <label>Type</label>
                 <div className="radio-container">
-                    <input type="radio" value="" name="movie-type" checked={movieType===""} onChange={(e) => setMovieType(e.target.value)}/> Any
-                    <input type="radio" value="movie" name="movie-type" checked={movieType==="movie"} onChange={(e) => setMovieType(e.target.value)}/> Movies
-                    <input type="radio" value="series" name="movie-type" checked={movieType==="series"} onChange={(e) => setMovieType(e.target.value)}/> Series
-                    <input type="radio" value="episode" name="movie-type" checked={movieType==="episode"} onChange={(e) => setMovieType(e.target.value)}/> Episodes
+                    <input type="radio" value="" name="movie-type" checked={movieType===""} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="">Any</label>
+                    <input type="radio" value="movie" name="movie-type" checked={movieType==="movie"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="movie">Movies</label>
+                    <input type="radio" value="series" name="movie-type" checked={movieType==="series"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="series">Series</label>
+                    <input type="radio" value="episode" name="movie-type" checked={movieType==="episode"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="episode">Episodes</label>
                 </div>
             </div>
         </div>

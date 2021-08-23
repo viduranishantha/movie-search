@@ -1,112 +1,150 @@
-/* Movie Details*/
+/**
+*  @category Movie Search
+*  @author Vidura Nishantha <vidur@gmail.com>
+*  http://www.viduranishantha.com
 
+*  Styling Movie details.  
+*/
+
+@import "./variables.scss";
 
 .movie-detials {
- padding: 30px;
-width: calc(62% - 60px);
-position: relative;
-}
+	padding: 30px;
+	width: calc(100% - 60px);
+	position: absolute;
+	top: 0;
+	height: 100%;
+	background: $color-white;
+	z-index: 4;
+	display: none;
 
-.movie-main-info-container {
-    display: flex;
-    margin-bottom: 20px;
-}
+	&.active {
+		display: block;
+	}
 
-.movie-thumb {
-    width: 33%;
-}
+	@media (min-width: $brakpoint-mobile) {
+		width: calc(62% - 60px);
+		position: relative;
+	}
 
-.movie-thumb img {
-    width: 100%;
-}
+	.mobile-header {
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 0 20px;
+		border-bottom: 1px solid $color-light-grey;
+		margin-bottom: 20px;
 
-.movie-details-discription {
-    width:63%;
-   padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    position: relative;
-    min-height: 250px;
-}
+		@media (min-width: $brakpoint-mobile) {
+			display: none;
+		}
+	}
 
-.movie-details-discription h3 {
-    font-size: 30px;
-}
+	.movie-main-info-container {
+		display: flex;
+		margin-bottom: 20px;
 
-.watchlist-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-        padding: 8px 10px 9px;
-    border: solid 1px #aaa5a5;
-    border-radius: 5px;
-        display: flex;
-    align-items: center;
-}
-.watchlist-container svg {
-    margin-right: 5px;
-}
+		.movie-thumb {
+			width: 33%;
 
-.watchlist-container:hover {
-    cursor:pointer;
-}
+			img {
+				width: 100%;
+			}
+		}
 
+		.movie-details-discription {
+			width: 63%;
+			padding-left: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			position: relative;
+			min-height: 250px;
+			padding-top: 25px;
 
+			h3 {
+				font-size: 30px;
+			}
 
-.extra-info-wrap {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    color: #4b4b4b;
-}
+			.watchlist-container {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 8px 10px 9px;
+				border: solid 1px $color-grey-border;
+				border-radius: 5px;
+				display: flex;
+				align-items: center;
 
-.extra-info .rated {
-    border: 1px solid #222222;
-    border-radius: 5px;
-    padding:5px;
-    padding: 5px 8px 3px;
-    margin-right: 10px;
-}
+				&:hover {
+					cursor: pointer;
+				}
 
-.actors {
-    color: #4b4b4b;
-    margin-top: 20px;
-}
+				svg {
+					margin-right: 5px;
+				}
+			}
 
-.movie-story-container {
-    border-top: 1px solid #bbbbbb;
-    padding: 20px 0;
-    color: #747474;
-    line-height: 26px;
-    font-size: 18px;
-}
+			.extra-info {
+				.extra-info-wrap {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					align-items: center;
+					color: $main-font-color;
 
-.movie-ratings {
-    border-top: 1px  solid #bbbbbb;
-    padding: 20px 0;
-    display: flex;
-}
+					.rated {
+						border: 1px solid $color-grey-border;
+						border-radius: 5px;
+						padding: 5px;
+						padding: 5px 8px 3px;
+						margin-right: 10px;
+						margin-bottom: 10px;
+						margin-top: 7px;
+					}
+				}
 
-.movie-rating-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px solid #bbbbbb;
-    width: 33.3%;
-    color: #747474;
-}
+				.actors {
+					color: $main-font-color;
+					margin-top: 20px;
+				}
+			}
+		}
+	}
 
-.movie-rating-container:last-child {
-    border-right: 1px solid #fff;
-}
+	.movie-story-container {
+		border-top: 1px solid $color-grey-border;
+		padding: 20px 0;
+		color: $main-font-color;
+		line-height: 26px;
+		font-size: 18px;
+	}
 
-.rating-value {
-    padding: 5px 0;
-}
+	.movie-ratings {
+		border-top: 1px solid $color-grey-border;
+		padding: 20px 0;
+		display: flex;
 
-.rating-source {
-    padding: 5px 0;
+		.movie-rating-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-right: 1px solid $color-grey-border;
+			width: 33.3%;
+			color: $main-font-color;
+
+			&:last-child {
+				border-right: 1px solid $color-white;
+			}
+
+			.rating-value {
+				padding: 5px 0;
+			}
+
+			.rating-source {
+				padding: 5px;
+				text-align: center;
+			}
+		}
+	}
 }

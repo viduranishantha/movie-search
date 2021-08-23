@@ -1,19 +1,32 @@
 import useFetch from '../useFetch'
 import { ThreeDots } from 'react-loading-icons'
-const MvDetails = ({currntMovie,addWatchList,handleAddWatchList}) => {
+import{FaTimes} from "react-icons/fa";
+
+const MvDetails = ({
+    currntMovie,
+    addWatchList,
+    handleAddWatchList,
+    noImage,
+    handleDetailClose,
+    mobileDetailActive}) => {
     
-   const { data, isPending, error } = useFetch('?apikey=8f5e4dfc&i='+currntMovie)
+   const { data, isPending, error } = useFetch(`?apikey=${process.env.REACT_APP_OMDG_API_KEY}&i=${currntMovie}`)
    const AddWatchList =  addWatchList
 
     return ( 
-    <div className="movie-detials">
+    <div className={`movie-detials ${mobileDetailActive ? 'active' :''}` }>
+        <div className="mobile-header">
+            <div className="close-button" onClick={()=> handleDetailClose(false)}> <FaTimes fontSize='25px' fontWeight='400'/> </div>
+        </div>
         { error && <div> {error}</div>}
         { isPending && <div className="loading">Item Loading <ThreeDots  stroke="#666" height="150"/></div>}
         
         { data && 
         <>
-            <div className="movie-main-info-container">
-                <div className="movie-thumb"> <img src={data.Poster} alt={data.Title}/> </div>
+            <div className='movie-main-info-container' >
+                <div className="movie-thumb"> <img src=
+                { (data.Poster === 'N/A') ?  `${noImage}` :  `${data.Poster}`}
+                alt={data.Title}/> </div>
                 <div className="movie-details-discription">
                     <div className="watchlist-container" onClick={() => handleAddWatchList(data) } >
                         <AddWatchList/>
@@ -21,7 +34,8 @@ const MvDetails = ({currntMovie,addWatchList,handleAddWatchList}) => {
                     <h3>{data.Title}</h3>
                     <div className="extra-info">
                         <div className="extra-info-wrap">
-                            <div className='rated'>{data.Rated} </div>{data.Year} {data.Genre} {data.Runtime}
+                            {data.Rated === 'N/A' ?  `` : <div className='rated'>{data.Rated} </div>}                          
+                             {data.Year} {data.Genre} {data.Runtime}
                         </div> 
                         
                         <div className="actors">{data.Actors}</div>
@@ -29,9 +43,13 @@ const MvDetails = ({currntMovie,addWatchList,handleAddWatchList}) => {
                      </div>
                 </div>
             </div>
-            <div className="movie-story-container">
-                    {data.Plot}
-            </div>
+            {/* load the Plot content only if the content available */}
+            { data.Plot === 'N/A' ? `` : 
+                <div className="movie-story-container">
+                        {data.Plot}
+                </div>
+            }
+            
             <div className="movie-ratings">
 
                 {data.Ratings && data.Ratings.map((rating) => (

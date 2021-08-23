@@ -15,21 +15,15 @@ const YearSlider= (props) => {
   const [yearValue, setYearValue] = useState([2000, 2015]);
 
   const { handleYear } = props;
-
-
-
-//   const { minYear, maxYear } = props;
-  
   const handleChange = (event, newValue) => debouncedSave(newValue)
   
+  const debouncedSave = useCallback(
+      debounce((newValue) => {
+          setYearValue (newValue)
+          handleYear (newValue)
 
-    const debouncedSave = useCallback(
-        debounce((newValue) => {
-            setYearValue (newValue)
-            handleYear (newValue)
-
-        } , 100),[],
-    );
+      } , 100),[],
+  );
 
 
   return (
@@ -43,12 +37,10 @@ const YearSlider= (props) => {
         <Slider
           value={yearValue}
           onChange={handleChange}
-          valueLabelDisplay="false"
           aria-labelledby="range-slider"
           min= {1970}
           max= {2015}
-          width = '70%'
-          color = '#fff'
+       
         />
         <div className="max-year label"> 1970 </div>
       </div>
