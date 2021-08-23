@@ -29,6 +29,10 @@
 		display: flex;
 		align-items: center;
 
+        svg {
+            margin-top: -4px;
+        }
+
 		.search-wording-input {
 			background-color: $color-primary;
 			border: 0;
@@ -93,13 +97,14 @@
 		.MuiSlider-track {
 			background-color: $color-light-grey;
 			height: 6px;
+            border-radius: 5px;
 		}
 
 		.MuiSlider-thumb {
 			width: 16px;
 			height: 16px;
 			color: $color-light-grey;
-            
+
             &:last-child {
                 display: none;
             }
