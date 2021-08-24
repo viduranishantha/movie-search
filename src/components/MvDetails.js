@@ -3,18 +3,18 @@ import { ThreeDots } from 'react-loading-icons'
 import{FaTimes} from "react-icons/fa";
 
 const MvDetails = ({
-    currntMovie,
+    currentMovie,
     addWatchList,
     handleAddWatchList,
     noImage,
     handleDetailClose,
     mobileDetailActive}) => {
     
-   const { data, isPending, error } = useFetch(`?apikey=${process.env.REACT_APP_OMDG_API_KEY}&i=${currntMovie}`)
+   const { data, isPending, error } = useFetch(`?apikey=${process.env.REACT_APP_OMDG_API_KEY}&i=${currentMovie}`)
    const AddWatchList =  addWatchList
 
     return ( 
-    <div className={`movie-detials ${mobileDetailActive ? 'active' :''}` }>
+    <div className={`movie-details ${mobileDetailActive ? 'active' :''}` }>
         <div className="mobile-header">
             <div className="close-button" onClick={()=> handleDetailClose(false)}> <FaTimes fontSize='25px' fontWeight='400'/> </div>
         </div>
@@ -27,8 +27,8 @@ const MvDetails = ({
                 <div className="movie-thumb"> <img src=
                 { (data.Poster === 'N/A') ?  `${noImage}` :  `${data.Poster}`}
                 alt={data.Title}/> </div>
-                <div className="movie-details-discription">
-                    <div className="watchlist-container" onClick={() => handleAddWatchList(data) } >
+                <div className="movie-details-description">
+                    <div className="watch-list-container" onClick={() => handleAddWatchList(data) } >
                         <AddWatchList/>
                     </div>
                     <h3>{data.Title}</h3>

@@ -24,7 +24,7 @@ const MvResult = (props) => {
                    { (movie.Poster === 'N/A') ?  `${noImage}` :  `${movie.Poster}`}
                     alt={movie.Title}/> 
                    </div>
-                   <div className="movie-discription">
+                   <div className="movie-description">
                         <h3>{movie.Title}</h3>
                         <span className="movie-year"> {movie.Year} </span>
                    </div>

@@ -16,7 +16,7 @@
 	align-items: center;
 	flex-direction: column;
 
-	@media (min-width: $brakpoint-mobile) {
+	@media (min-width: $breakpoint-mobile) {
 		flex-direction: row;
 		padding: 0px 30px;
 	}
@@ -60,7 +60,7 @@
 			text-align: center;
 			text-transform: uppercase;
 
-			@media (min-width: $brakpoint-mobile) {
+			@media (min-width: $breakpoint-mobile) {
 				text-align: left;
 			}
 		}
@@ -125,7 +125,7 @@
 			width: 100%;
 			text-transform: uppercase;
 
-			@media (min-width: $brakpoint-mobile) {
+			@media (min-width: $breakpoint-mobile) {
 				text-align: left;
 			}
 		}

@@ -13,7 +13,7 @@ const MvWatchList = (props) => {
         <div className={`watch-list  ${watchListActive ? 'active' :''}` }> 
             <div className='movie-watch-list' >
                 {watchListActive}
-                <div className="watchlist-header">
+                <div className="watch-list-header">
                     My Wish List
                     <div className="close-button" onClick={()=> handleWatchListClose()}> <FaTimes/> </div>
                 </div>
@@ -25,7 +25,7 @@ const MvWatchList = (props) => {
                             { (movie.Poster === 'N/A') ?  `${noImage}` :  `${movie.Poster}`}
                             alt={movie.Title}/> 
                         </div>
-                        <div className="movie-discription">
+                        <div className="movie-description">
                                 <h3>{movie.Title}</h3>
                                 <span className="remove"> <button onClick={() => handleRemoveWatchList(movie) }  ><FaTimes/> Remove</button> </span>
                         </div>

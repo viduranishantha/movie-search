@@ -17,7 +17,7 @@ const [movieType, SetMovieType]  =useState('')
 const [movieYear, SetMovieYear] = useState(['',2010])
 const [watchList, setWatchList] = useState([])
 const [watchListActive, setWatchListActive] = useState(false)
-const [currntMovie, setCurrentMoive] = useState(null);
+const [currentMovie, setCurrentMovie] = useState(null);
 const [minYear, setMinYear] = useState('');
 // const [maxYear, setMaxYear] = useState(2015);
 const [mobileDetailActive, setMobileDetailActive] = useState(false)
@@ -29,9 +29,9 @@ const movieData = data || {}
 const movies = movieData.Search 
 const totalResults = movieData.totalResults 
 
-// Handle current movie id for detal component        
+// Handle current movie id for detail component        
 const handleCurrentMovie = (id) => {
-  setCurrentMoive(id)
+  setCurrentMovie(id)
   HandleDetailClose(true)
 }
 
@@ -88,9 +88,9 @@ const HandleDetailClose = (status) => {
             movieType = {movieType}
             movieYear = {movieYear}/>}
 
-          {currntMovie && 
+          {currentMovie && 
           <MvDetails 
-              currntMovie ={currntMovie} 
+              currentMovie ={currentMovie} 
               addWatchList ={AddWatchList} 
               handleAddWatchList={HandleAddWatchList}
               handleDetailClose={HandleDetailClose}

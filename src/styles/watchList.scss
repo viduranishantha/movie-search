@@ -3,7 +3,7 @@
 *  @author Vidura Nishantha <vidur@gmail.com>
 *  http://www.viduranishantha.com
 
-*  Styling watchlist componen†s.  
+*  Styling watch list components.  
 */
 
 @import "./variables.scss";
@@ -19,7 +19,7 @@
 	z-index: 5;
 	display: none;
 
-	@media (min-width: $brakpoint-mobile) {
+	@media (min-width: $breakpoint-mobile) {
 		width: 330px;
 		top: 86px;
 		left: 38%;
@@ -36,11 +36,11 @@
 		overflow-y: scroll;
 		height: 100%;
 
-		@media (min-width: $brakpoint-mobile) {
+		@media (min-width: $breakpoint-mobile) {
 			height: 700px;
 		}
 
-		.watchlist-header {
+		.watch-list-header {
 			border-bottom: 1px solid $color-light-grey;
 			display: flex;
 			justify-content: space-between;
@@ -59,7 +59,7 @@
 			.image-container {
 				width: 20%;
 				position: relative;
-				@media (min-width: $brakpoint-mobile) {
+				@media (min-width: $breakpoint-mobile) {
 					width: 50%;
 				}
 
@@ -77,10 +77,10 @@
 				}
 			}
 
-			.movie-discription {
+			.movie-description {
 				padding-left: 15px;
 
-				@media (min-width: $brakpoint-mobile) {
+				@media (min-width: $breakpoint-mobile) {
 					width: 50%;
 				}
 
