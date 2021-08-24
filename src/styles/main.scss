@@ -30,7 +30,7 @@ body {
 .loading {
 	justify-content: center;
 	padding: 20px;
-	position: absolute;
+	position: fixed;
 	background: $light-bg-grey;
 	color: $color-light-grey2;
 	font-size: 16px;
@@ -40,6 +40,16 @@ body {
 	align-items: center;
 	margin-left: -30px;
 	margin-top: -30px;
+	top: 0;
+	flex-direction: column;
+
+	@media (min-width: $breakpoint-mobile) {
+		position: absolute;
+	}
+
+	svg {
+		height: 50px;
+	}
 }
 
 .error-container {

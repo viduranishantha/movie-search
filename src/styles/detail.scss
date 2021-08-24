@@ -27,6 +27,15 @@
 		position: relative;
 	}
 
+	.loading {
+		top: 0;
+    	height: 100%;
+		@media (min-width: $breakpoint-mobile) {
+			position: absolute;
+			top: 30px;
+		}
+	}
+
 	.mobile-header {
 		display: flex;
 		justify-content: flex-end;
