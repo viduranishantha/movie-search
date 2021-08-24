@@ -9,6 +9,7 @@ import AddWatchList from "./components/AddWatchList";
 import MvWatchList from "./components/MvWatchList";
 
 import NoImage from "./assets/no-image.jpg"
+import { Helmet } from "react-helmet";
 
 function App() {
 
@@ -72,6 +73,11 @@ const HandleDetailClose = (status) => {
 
   return (
     <div className="App">
+      <Helmet> 
+        <title>Movie search</title>
+        <meta name="description" content="Movie Search" />
+      </Helmet>
+
       <div className="main">
       
        <MvSearch handleSearchTerms = {handleSearchTerms} />
