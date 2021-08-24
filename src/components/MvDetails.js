@@ -10,7 +10,7 @@ const MvDetails = ({
     handleDetailClose,
     mobileDetailActive}) => {
     
-   const { data, isPending, error } = useFetch(`?apikey=${process.env.REACT_APP_OMDG_API_KEY}&i=${currentMovie}`)
+   const { data:movie, isPending, error } = useFetch(`?apikey=${process.env.REACT_APP_OMDG_API_KEY}&i=${currentMovie}`)
    const AddWatchList =  addWatchList
 
     return ( 
@@ -21,38 +21,38 @@ const MvDetails = ({
         { error && <div className="error-container"> {error}</div>}
         { isPending && <div className="loading">Item Loading <ThreeDots  stroke="#666" height="150"/></div>}
         
-        { data && 
+        { movie && 
         <>
             <div className='movie-main-info-container' >
                 <div className="movie-thumb"> <img src=
-                { (data.Poster === 'N/A') ?  `${noImage}` :  `${data.Poster}`}
-                alt={data.Title}/> </div>
+                { (movie.Poster === 'N/A') ?  `${noImage}` :  `${movie.Poster}`}
+                alt={movie.Title}/> </div>
                 <div className="movie-details-description">
-                    <div className="watch-list-container" onClick={() => handleAddWatchList(data) } >
+                    <div className="watch-list-container" onClick={() => handleAddWatchList(movie) } >
                         <AddWatchList/>
                     </div>
-                    <h3>{data.Title}</h3>
+                    <h3>{movie.Title}</h3>
                     <div className="extra-info">
                         <div className="extra-info-wrap">
-                            {data.Rated === 'N/A' ?  `` : <div className='rated'>{data.Rated} </div>}                          
-                             {data.Year} {data.Genre} {data.Runtime}
+                            {movie.Rated === 'N/A' ?  `` : <div className='rated'>{movie.Rated} </div>}                          
+                             {movie.Year} {movie.Genre} {movie.Runtime}
                         </div> 
                         
-                        <div className="actors">{data.Actors}</div>
+                        <div className="actors">{movie.Actors}</div>
                         
                      </div>
                 </div>
             </div>
             {/* load the Plot content only if the content available */}
-            { data.Plot === 'N/A' ? `` : 
+            { movie.Plot === 'N/A' ? `` : 
                 <div className="movie-story-container">
-                        {data.Plot}
+                        {movie.Plot}
                 </div>
             }
             
             <div className="movie-ratings">
 
-                {data.Ratings && data.Ratings.map((rating) => (
+                {movie.Ratings && movie.Ratings.map((rating) => (
                     <div className="movie-rating-container" key={rating.index}>
                         <span className="rating-value">
                             {rating.Value}
