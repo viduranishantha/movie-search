@@ -20,9 +20,12 @@ body {
 		position: relative;
 
 		.results-wrapper {
-			display: flex;
-			border: 1px solid $color-grey-border;
-      min-height: 700px;
+			display: flex;			
+      		min-height: 700px;
+
+			@media (min-width: $breakpoint-mobile) {
+				border: 1px solid $color-grey-border;
+			}
 		}
 	}
 }

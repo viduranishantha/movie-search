@@ -16,7 +16,7 @@
 	align-items: center;
 	flex-direction: column;
 
-	@media (min-width: $breakpoint-mobile) {
+	@media (min-width: $breakpoint-tablet) {
 		flex-direction: row;
 		padding: 0px 30px;
 	}

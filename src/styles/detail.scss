@@ -51,20 +51,38 @@
 	.movie-main-info-container {
 		display: flex;
 		margin-bottom: 20px;
+		flex-direction: column;
+
+		@media (min-width: $breakpoint-mobile) {
+			flex-direction: row;
+		}
 
 		.movie-thumb {
-			width: 33%;
+			width: 100%;
             display: flex;
             align-items: flex-end;
+			height: 306px;
+    		overflow: hidden;
+			position: relative;
+
+			@media (min-width: $breakpoint-mobile) {
+			width: 33%;
+			}
 
 			img {
 				width: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0;
+
+				@media (min-width: $breakpoint-mobile) {
+				  top:inherit;
+				}
 			}
 		}
 
 		.movie-details-description {
-			width: 63%;
-			padding-left: 20px;
+			width: 100%;			
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
@@ -72,12 +90,17 @@
 			min-height: 250px;
 			padding-top: 25px;
 
+			@media (min-width: $breakpoint-mobile) {
+				width: 63%;
+				padding-left: 20px;
+			}
+
 			h3 {
 				font-size: 30px;
 			}
 
 			.watch-list-container {
-				position: absolute;
+				width: 147px;
 				top: 0;
 				right: 0;
 				padding: 8px 10px 9px;
@@ -85,6 +108,11 @@
 				border-radius: 5px;
 				display: flex;
 				align-items: center;
+				margin-left:auto;
+
+				@media (min-width: $breakpoint-mobile) {
+					position: absolute;
+				}
 
 				&:hover {
 					cursor: pointer;

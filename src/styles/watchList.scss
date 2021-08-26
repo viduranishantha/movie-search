@@ -30,6 +30,13 @@
 	&.active {
 		display: block;
 		z-index: 5;
+		height: 100%;
+    	position: fixed;
+
+		@media (min-width: $breakpoint-mobile) {
+			position: absolute;
+			height: auto;
+		}
 	}
 
 	.movie-watch-list {
