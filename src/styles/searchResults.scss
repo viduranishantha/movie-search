@@ -14,10 +14,10 @@
 	overflow: hidden;
 	overflow-y: scroll;
 	position: relative;
-	border-right: 1px solid $color-grey-border;
 
 	@media (min-width: $breakpoint-mobile) {
 		width: 38%;
+		border-right: 1px solid $color-grey-border;
 	}
 
 	.loading {

@@ -1,6 +1,7 @@
 import useFetch from '../useFetch'
 import { ThreeDots } from 'react-loading-icons'
 import{FaTimes} from "react-icons/fa";
+import uuid from 'react-uuid'
 
 const MvDetails = ({
     currentMovie,
@@ -53,7 +54,7 @@ const MvDetails = ({
             <div className="movie-ratings">
 
                 {movie.Ratings && movie.Ratings.map((rating) => (
-                    <div className="movie-rating-container" key={rating.index}>
+                    <div className="movie-rating-container" key={uuid()}>
                         <span className="rating-value">
                             {rating.Value}
                         </span>

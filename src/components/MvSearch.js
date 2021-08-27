@@ -1,4 +1,4 @@
-import { useEffect, useState ,useCallback } from "react";
+import { useEffect, useState ,useMemo } from "react";
 import{FaSearch} from "react-icons/fa";
 import YearSlider from "./YearSlider";
 import debounce from 'lodash.debounce';
@@ -11,15 +11,16 @@ const MvSearch = (props) => {
     const [movieYear, setMovieYear] = useState(['',2010])
 
     useEffect(()=> {
-
         handleSearchTerms ({keyWord,movieType,movieYear})
 
-    },[keyWord,movieType,movieYear])
+    },[keyWord,movieType,movieYear,handleSearchTerms])
 
-    const debouncedWord = useCallback(
-        debounce((word) => {
-           setKeyWord (word)
-        } , 100),[],
+    const handleKeyWordSet = (word) => {
+        setKeyWord (word)
+    }
+
+    const debouncedWord = useMemo( 
+        () => debounce(handleKeyWordSet, 300),[]
     );
 
 
@@ -45,10 +46,10 @@ const MvSearch = (props) => {
             <div className="search-type">
                 <label>Type</label>
                 <div className="radio-container">
-                    <input type="radio" value="" name="movie-type" checked={movieType===""} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="">Any</label>
-                    <input type="radio" value="movie" name="movie-type" checked={movieType==="movie"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="movie">Movies</label>
-                    <input type="radio" value="series" name="movie-type" checked={movieType==="series"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="series">Series</label>
-                    <input type="radio" value="episode" name="movie-type" checked={movieType==="episode"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="episode">Episodes</label>
+                    <input type="radio" id="any" value="" name="movie-type" checked={movieType===""} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="any">Any</label>
+                    <input type="radio" id="movie" value="movie" name="movie-type" checked={movieType==="movie"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="movie">Movies</label>
+                    <input type="radio" id="series" value="series" name="movie-type" checked={movieType==="series"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="series">Series</label>
+                    <input type="radio" id="episode" value="episode" name="movie-type" checked={movieType==="episode"} onChange={(e) => setMovieType(e.target.value)}/>  <label htmlFor="episode">Episodes</label>
                 </div>
             </div>
         </div>
